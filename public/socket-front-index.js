@@ -10,7 +10,7 @@ socket.emit("obter_documentos", (documentos) => {
 
 function emitirAdicionarDocumento(nome) {
   socket.emit("adicionar_documento", nome);
-};
+}
 
 socket.on("adicionar_documento_interface", (nome) => {
   inserirLinkDocumento(nome);
