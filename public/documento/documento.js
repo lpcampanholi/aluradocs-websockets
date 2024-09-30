@@ -24,7 +24,7 @@ textoEditor.addEventListener("keyup", () => {
 
 function atualizaTextoEditor(texto) {
   textoEditor.value = texto;
-}
+};
 
 botaoExcluir.addEventListener("click", () => {
   emitirExcluirDocumento(nomeDocumento);
@@ -34,7 +34,7 @@ function alertarERedirecionar(nome) {
   if (nome === nomeDocumento) {
     alert(`Documento ${nome} excluído!`);
     window.location.href = "/";
-  }
-}
+  };
+};
 
 export { atualizaTextoEditor, alertarERedirecionar };
