@@ -4,7 +4,7 @@ function definirCookie(chave, valor) {
 
 function obterCookie(chave) {
   return document.cookie
-  .split(", ")
+  .split("; ")
   .find((cookie) => cookie.startsWith(`${chave}=`))
   ?.split("=")[1];
 };
