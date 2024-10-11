@@ -13,7 +13,7 @@ function registrarEventosDocumento(socket, io) {
       const conexaoEncontrada = encontrarConexao(nomeDocumento, nomeUsuario);
       if (!conexaoEncontrada) {
         socket.join(nomeDocumento);
-        adicionarConexao({ nomeDocumento, nomeUsuario });
+        adicionarConexao({ nomeDocumento, nomeUsuario, id: socket.id });
         socket.data = {
           usuarioEntrou: true,
         };
@@ -41,7 +41,7 @@ function registrarEventosDocumento(socket, io) {
 
     socket.on("disconnect", () => {
       if (socket.data.usuarioEntrou) {
-        removerConexao(nomeDocumento, nomeUsuario);
+        removerConexao(socket.id);
         const usuariosNoDocumento = obterUsuariosDocumento(nomeDocumento);
         io.to(nomeDocumento).emit("usuarios_no_documento", usuariosNoDocumento);
       };

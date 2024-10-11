@@ -16,10 +16,8 @@ function obterUsuariosDocumento(nomeDocumento) {
     .map(conexao => conexao.nomeUsuario);
 };
 
-function removerConexao(nomeDocumento, nomeUsuario) {
-  const indice = conexoesDocumentos.findIndex((conexao) => {
-    return conexao.nomeDocumento === nomeDocumento && conexao.nomeUsuario === nomeUsuario;
-  });
+function removerConexao(id) {
+  const indice = conexoesDocumentos.findIndex(conexao => conexao.id === id);
   if (indice !== -1) {
     conexoesDocumentos.splice(indice, 1);
   };
